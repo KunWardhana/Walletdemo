@@ -3,6 +3,7 @@ package org.bsim.intern.walletdemo.ui.controller;
 import org.bsim.intern.walletdemo.service.iservice.IUserService;
 import org.bsim.intern.walletdemo.shared.dto.UserDTO;
 import org.bsim.intern.walletdemo.ui.model.request.UserRequest;
+import org.bsim.intern.walletdemo.ui.model.response.TransactionResponse;
 import org.bsim.intern.walletdemo.ui.model.response.UserRespond;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,8 @@ public class UserController {
         UserRespond response = mapper.map (createduser, UserRespond.class);
         return response;
     }
+
+
 
 
 }

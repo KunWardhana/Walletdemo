@@ -1,9 +1,8 @@
 package org.bsim.intern.walletdemo.io.entity;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name ="wallettable")
@@ -30,6 +29,9 @@ public class WalletEntity implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid")
     private UserEntity user;
+
+    @OneToMany(mappedBy = "walletEntity")
+    private List<TransactionEntity> transactionEntities;
 
     public long getId() {
         return id;
@@ -77,5 +79,13 @@ public class WalletEntity implements Serializable {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public List<TransactionEntity> getTransactionEntities() {
+        return transactionEntities;
+    }
+
+    public void setTransactionEntities(List<TransactionEntity> transactionEntities) {
+        this.transactionEntities = transactionEntities;
     }
 }
